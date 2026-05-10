@@ -1,0 +1,8 @@
+[
+  { "id": "1", "title": "The Harlow Residence", "category": "Residential", "img": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80", "large": false },
+  { "id": "2", "title": "Meridian HQ",          "category": "Commercial",  "img": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80", "large": true  },
+  { "id": "3", "title": "Hotel Soleil",         "category": "Hospitality", "img": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80", "large": false },
+  { "id": "4", "title": "The Ashford Penthouse","category": "Residential", "img": "https://images.unsplash.com/photo-1600210492493-0946911123ea?w=800&q=80", "large": true  },
+  { "id": "5", "title": "Atelier Boutique",     "category": "Commercial",  "img": "https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=800&q=80", "large": false },
+  { "id": "6", "title": "Villa Côte",           "category": "Hospitality", "img": "https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80", "large": false }
+]

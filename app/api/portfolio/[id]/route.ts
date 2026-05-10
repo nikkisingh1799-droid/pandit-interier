@@ -1,0 +1,27 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { supabase } from '@/lib/supabase';
+import { SESSION_COOKIE, SESSION_SECRET } from '@/lib/auth';
+
+function isAdmin(req: NextRequest) {
+  return req.cookies.get(SESSION_COOKIE)?.value === SESSION_SECRET;
+}
+
+// PUT — update
+export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
+  if (!isAdmin(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+
+  const body = await req.json();
+  const { data, error } = await supabase
+    .from('portfolio').update(body).eq('id', params.id).select().single();
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  return NextResponse.json(data);
+}
+
+// DELETE
+export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+  if (!isAdmin(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+
+  const { error } = await supabase.from('portfolio').delete().eq('id', params.id);
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  return NextResponse.json({ ok: true });
+}
